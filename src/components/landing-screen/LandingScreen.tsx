@@ -11,7 +11,7 @@ function LandingScreen() {
     return (
         <div className={styles.landingScreen} style={{display: "flex"}}>
             <Container fluid>
-                <Row style={{height: "100%"}}>
+                <Row style={{height: "100%", marginBottom: '10px'}}>
                     <Col xs={12} md={6} style={{
                         display: 'flex', 
                         justifyContent: 'center',
@@ -36,8 +36,20 @@ function LandingScreen() {
                 <Row>
                     <Col xs={12} style={{
                         display: 'flex', 
-                        justifyContent: 'center'
+                        justifyContent: 'space-evenly'
                     }}>
+                        <div className='scrolldown'>
+                            <div className="chevrons">
+                                <div className='chevronDown'></div>
+                                <div className='chevronDown'></div>
+                            </div>
+                        </div>
+                        <div className='scrolldown'>
+                            <div className="chevrons">
+                                <div className='chevronDown'></div>
+                                <div className='chevronDown'></div>
+                            </div>
+                        </div>
                         <div className='scrolldown'>
                             <div className="chevrons">
                                 <div className='chevronDown'></div>

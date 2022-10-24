@@ -248,7 +248,7 @@ function TechnologiesCarousel() {
                 {MyList.map((Stack: any, index: number) => {
                     return <Carousel.Item className={styles.carouselItem} key={Stack.Key}>
                         <h3 className={styles.carouselHeader}>{Stack.Headline}</h3>
-                        <Divider />
+                        <Divider style={{borderColor: 'rgba(255 255 255 / 100%)'}} />
                         <div className={styles.technologiesStack} 
                             ref={(el: any) => techStacksRefs.current[index] = el}>
                             {Stack.Technologies.map((technology: any) => {
