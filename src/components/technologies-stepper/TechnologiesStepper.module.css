@@ -1,0 +1,7 @@
+.technologiesLabel span {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700 !important;
+    font-size: 17px;
+    color: white !important;
+    cursor: default;
+}

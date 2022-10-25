@@ -1,5 +1,8 @@
 :root {
   --dark-font-color: #25265e;
+  --contrast-orange: #FF884B;
+  --contrast-red: #E0144C;
+  --toned-blue: rgb(33, 85, 205);
 }
 
 .body {
@@ -16,13 +19,49 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #011d4f;        
+  background: white;        
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: #040628;    
   border-radius: 20px;       
-  border: 3px solid #011d4f;  
+  border: 3px solid white;  
+}
+
+.projectShortcutQuarere::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;  
+  opacity: 0.15; 
+  z-index: -1;
+  background: url('/public/images/quarere-background.png');
+}
+
+.projectShortcutItQuest::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;  
+  opacity: 0.15; 
+  z-index: -1;
+  background: url('/public/images/it-quest-background-2.png');
+}
+
+.projectShortcutCodex::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;  
+  opacity: 0.15; 
+  z-index: -1;
+  background: url('/public/images/Codex-background-2.png');
 }
 
 .lifting-button {
@@ -54,8 +93,8 @@ body::-webkit-scrollbar-thumb {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow, transform;
   width: 300px;
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
 .lifting-button svg {

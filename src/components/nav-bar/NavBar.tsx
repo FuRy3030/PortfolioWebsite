@@ -1,8 +1,10 @@
 import styles from './NavBar.module.css';
 
-const NavBar = () => {
+const NavBar = (props: any) => {
     return (
-        <div className={styles.navbar}>
+        <div className={props.isLandingScreenVisible == false ? 
+            `${styles.navbar} ${styles.navbarWhite}` : `${styles.navbar}`}
+        >
             <h2 className={styles.navbarHeader}>
                 Adam Duda
             </h2>

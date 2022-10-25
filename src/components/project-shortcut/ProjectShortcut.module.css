@@ -1,0 +1,98 @@
+.projectShortcut {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 65px;
+    margin-bottom: 65px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 32px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(212, 213, 228, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(212, 213, 228, 1);
+    box-shadow: 0px 0px 5px 0px rgba(212, 213, 228, 1);
+    border: 1px solid rgb(232, 232, 240);
+}
+
+.projectVideo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--dark-font-color);
+}
+
+.projectHeader {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--dark-font-color);
+    width: 90%;
+    text-align: left;
+    cursor: default;
+}
+
+.projectDescription {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--dark-font-color);
+    width: 90%;
+    text-align: justify;
+    cursor: default;
+}
+
+.projectTechnologies {
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: justify;
+    cursor: default;
+}
+
+.projectTechnologiesType {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--dark-font-color);
+    margin-right: 10px;
+}
+
+.projectTechnologiesListFront {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--contrast-orange);
+}
+
+.projectTechnologiesListBack {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--toned-blue);
+}
+
+.projectTechnologiesListOther {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--contrast-red);
+}
+
+.buttonRow {
+    width: 90%;
+    margin: 13px auto 0px auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.readMoreButton {
+    font-size: 20px;
+    padding: 10px 50px;
+    width: auto;
+}
