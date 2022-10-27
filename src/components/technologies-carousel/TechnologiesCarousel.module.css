@@ -6,7 +6,7 @@
     margin-right: auto;
     padding: 2.5px;
     display: flex;
-    height: 100%;
+    height: auto;
 }
 
 .carouselItem {
@@ -31,13 +31,14 @@
     justify-content: space-evenly;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 .chipTechnology {
     color: white !important;
     padding: 7px !important;
-    margin: 8px 8px;
+    margin: 14px 8px;
 }
 
 .chipTechnology span {
@@ -55,7 +56,7 @@
 .chipTechnologyAlt {
     color: var(--dark-font-color) !important;
     padding: 7px !important;
-    margin: 8px 8px;
+    margin: 14px 8px;
 }
 
 .chipTechnologyAlt svg {
@@ -68,4 +69,66 @@
     font-size: 17.5px;
     position: relative;
     top: 2px;
+}
+
+@media (min-width: 1400px) {
+    .carouselHeader {
+        font-size: 45px;
+    }
+
+    .chipTechnology {
+        height: 42px !important;
+        padding: 19px !important;
+        margin: 26px 15px;
+        border-radius: 28px;
+    }
+
+    .chipTechnology span {
+        font-size: 23px;
+        top: 2.5px;
+    }
+
+    .chipTechnology svg {
+        height: 2em;
+        margin-right: 6px !important;
+    }
+
+    .chipTechnologyAlt {
+        height: 42px !important;
+        padding: 19px !important;
+        margin: 26px 15px;
+        border-radius: 28px;
+    }
+
+    .chipTechnologyAlt span {
+        font-size: 23px;
+        top: 2.5px;
+    }
+
+    .chipTechnologyAlt svg {
+        height: 2em;
+        margin-right: 6px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .chipTechnology {
+        height: 30px !important;
+        padding: 4px !important;
+        margin: 10px 3px;
+    }
+
+    .chipTechnology span {
+        font-size: 11px;
+    }
+
+    .chipTechnologyAlt {
+        height: 30px !important;
+        padding: 4px !important;
+        margin: 10px 3px;
+    }
+
+    .chipTechnologyAlt span {
+        font-size: 11px;
+    }
 }

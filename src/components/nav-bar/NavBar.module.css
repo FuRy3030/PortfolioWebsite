@@ -6,9 +6,9 @@
     height: auto;
     background-color: hsl(0, 0%, 0%, 0.55);
     z-index: 6;
-    padding: 12px 14px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     transition: all 0.4s ease;
 }
 
@@ -22,10 +22,11 @@
 .navbarHeader {
     font-family: 'League Spartan', sans-serif;
     font-weight: 800;
-    font-size: 25px;
+    font-size: 27px;
     color: white;
     margin-bottom: 0px;
     cursor: default;
+    padding: 12px 25px;
 }
 
 .navbarWhite .navbarHeader {
@@ -44,9 +45,10 @@
     cursor: pointer;
     font-family: 'League Spartan', sans-serif;
     font-weight: 600;
-    font-size: 19px;
+    font-size: 21px;
     color: white;
-    margin: 0px 15px;
+    padding: 12px 10px;
+    margin: 0px 20px;
     transition: all 0.5s ease-in-out;
 }
 
@@ -58,7 +60,7 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: 8px;
     width: 100%;
     height: 2px;
     background: white;
@@ -71,8 +73,153 @@
     background: var(--dark-font-color);
 }
 
+.navbarDropdown {
+    position: absolute;
+    left: -22.5px;
+    bottom: -175px;
+    width: auto;
+    height: auto;
+    background-color: hsl(0, 0%, 0%, 0.55);
+    z-index: 6;
+    border-radius: 6px;
+    padding: 6px 0px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.navbarWhite .navbarLink .navbarDropdown {
+    background-color: white;
+    -webkit-box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
+    -moz-box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
+    box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
+}
+
+.navbarDropdown > span {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    padding: 12px 35px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbarWhite .navbarLink .navbarDropdown > span {
+    color: var(--dark-font-color);
+}
+
+.navbarDropdown > span > svg {
+    margin-right: 14px;
+    position: relative;
+    top: 3px;
+}
+
+.mobileMenuButton {
+    margin-left: auto;
+    margin-right: 30px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.navbarWhite .mobileMenuButton {
+    color: var(--dark-font-color);
+}
+
+.mobileMenu {
+    padding-top: 40px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.closeIcon {
+    margin-left: auto;
+    color: var(--dark-font-color);
+    margin-right: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.mobileMenu .mobileLink {
+    cursor: pointer;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: var(--dark-font-color);
+    padding: 18px 20px;
+    border-bottom: 1px solid rgb(231, 231, 238);
+    width: 90%;
+}
+
+.mobileMenu .mobileDropdown {
+    margin-top: 5px;
+    width: 90%;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileMenu .mobileDropdown .mobileDropdownLink {
+    display: flex;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--dark-font-color);
+    padding: 12px 10px;
+    cursor: pointer;
+}
+
+.mobileMenu .mobileDropdown .mobileDropdownLink > svg {
+    margin-right: 14px;
+    position: relative;
+    top: 3px;
+}
+
+@media (max-width: 576px) {
+    .mobileMenuButton {
+        display: block;
+    }
+
+    .navbarContent {
+        display: none;
+    }
+}
+
 @media (hover) {
     .navbarLink:hover::after {
         transform: scaleX(1);
+    }
+
+    .navbarDropdown:hover {
+        display: flex;
+    }
+
+    .navbarLink:hover > .navbarDropdown {
+        display: flex;
+    }
+
+    .navbarDropdown > span:hover {
+        color: var(--contrast-orange);
+        background-color: white;
+    }
+
+    .navbarWhite .navbarLink .navbarDropdown > span:hover {
+        color: var(--contrast-orange);
+        background-color: ghostwhite;
     }
 }

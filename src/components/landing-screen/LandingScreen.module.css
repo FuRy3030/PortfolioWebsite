@@ -41,3 +41,20 @@
 .landingButton svg {
     margin-left: 18px;
 }
+
+@media (min-width: 1400px) {
+    .mainHeader {
+        font-size: 85px;
+        margin-bottom: 20px;
+    }
+
+    .subHeader {
+        font-size: 37px;
+        margin-bottom: 60px;
+    }
+
+    .landingButton {
+        width: 350px !important;
+        font-size: 30px !important;
+    }
+}

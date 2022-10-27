@@ -62,7 +62,7 @@ const SkillsShortcut = () => {
     return (
         <React.Fragment>
             <div className={styles.skillsShortcut}>
-                <Col xs={12} md={6} style={{marginBottom: '30px'}}>
+                <Col xs={12} lg={6} style={{marginBottom: '30px'}}>
                     <div className={styles.card}>
                         <React.Fragment>
                             <h2 className={styles.cardHeader}>Languages</h2>
@@ -82,7 +82,7 @@ const SkillsShortcut = () => {
                         </React.Fragment>
                     </div>
                 </Col>
-                <Col xs={12} md={6} style={{marginBottom: '30px'}}>
+                <Col xs={12} lg={6} style={{marginBottom: '30px'}}>
                     <div className={styles.card}>
                         <h2 className={styles.cardHeader}>Frameworks / Libraries</h2>
                         <div className={styles.headelineDescriptors}>

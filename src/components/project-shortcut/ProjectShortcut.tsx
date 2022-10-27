@@ -29,12 +29,12 @@ const ProjectShortcut = (props: any) => {
     return (
         <ProjectShortcutInner className={`${props.backgroundClassName}`}>
             <Row>
-                <Col xs={12} sm={12} md={6} style={{display: 'flex', alignItems: 'center'}}>
+                <Col xs={12} sm={12} lg={6} style={{display: 'flex', alignItems: 'center'}}>
                     <video className={styles.projectVideo} controls>
                         <source src={`/videos/${props.video}.mp4`} type="video/mp4" />
                     </video>
                 </Col>
-                <Col xs={12} sm={12} md={6}>
+                <Col xs={12} sm={12} lg={6}>
                     <h2 className={styles.projectHeader}>{props.name}</h2>
                     <p className={styles.projectDescription}>{props.description}</p>
                     <div className={styles.projectTechnologies}>

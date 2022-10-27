@@ -96,3 +96,9 @@
     padding: 10px 50px;
     width: auto;
 }
+
+@media (max-width: 992px) {
+    .projectVideo {
+        margin-bottom: 32px;
+    }
+}

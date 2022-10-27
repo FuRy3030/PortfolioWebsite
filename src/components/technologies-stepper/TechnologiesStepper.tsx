@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import styles from './TechnologiesStepper.module.css';
 import { styled } from '@mui/material/styles';
 import Stepper from '@mui/material/Stepper';
@@ -58,7 +59,7 @@ const TechnologiesStepperStepIconRoot = styled('div')<{ ownerState: { active?: b
             zIndex: 1,
             fontSize: 20,
             color: '#eaeaf0'
-        },
+        }
     }),
 );
 
@@ -86,21 +87,55 @@ const Technologies: string[] = [
     'Angular / Vue.js'
 ];
 
+const TechnologiesShort: string[] = [
+    'SQL',
+    'JavaScript',
+    'C# / .NET',
+    'React',
+    'TypeScript'
+];
+
 const TechnologiesStepper = () => {
+    const [isSmallDevice, setSmallDevice] = useState(window.innerWidth < 700);
+
+    const updateMedia = () => {
+        setSmallDevice(window.innerWidth < 700);
+    };
+  
+    useEffect(() => {
+        window.addEventListener('resize', updateMedia);
+        return () => window.removeEventListener('resize', updateMedia);
+    }, []);
+
     return (
-        <div style={{margin: '80px auto 35px auto', width: '96%'}}>
-            <Stepper alternativeLabel activeStep={4} connector={<TechnologiesStepperConnector />}>
-                {Technologies.map((label: string) => (
-                    <Step key={label}>
-                        <StepLabel 
-                            className={styles.technologiesLabel} 
-                            StepIconComponent={TechnologiesStepperStepIcon}
-                        >
-                            {label}
-                        </StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
+        <div style={{margin: '80px auto 35px auto', width: '96%'}}> 
+            {isSmallDevice == false ? 
+                <Stepper alternativeLabel activeStep={4} connector={<TechnologiesStepperConnector />}>
+                    {Technologies.map((label: string) => (
+                        <Step key={label}>
+                            <StepLabel 
+                                className={styles.technologiesLabel} 
+                                StepIconComponent={TechnologiesStepperStepIcon}
+                            >
+                                {label}
+                            </StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+                :
+                <Stepper alternativeLabel activeStep={3} connector={<TechnologiesStepperConnector />}>
+                    {TechnologiesShort.map((label: string) => (
+                        <Step key={label}>
+                            <StepLabel 
+                                className={styles.technologiesLabel} 
+                                StepIconComponent={TechnologiesStepperStepIcon}
+                            >
+                                {label}
+                            </StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+            }
         </div>
     )
 }

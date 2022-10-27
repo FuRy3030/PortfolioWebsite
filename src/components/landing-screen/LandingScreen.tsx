@@ -29,7 +29,7 @@ function LandingScreen() {
                             <FontAwesomeIcon icon={faArrowRight} />
                         </button>
                     </Col>
-                    <Col xs={12} md={6} style={{marginBottom: '30px'}}>
+                    <Col xs={12} md={6} style={{marginBottom: '30px', display: 'flex', alignItems: 'center'}}>
                         <TechnologiesCarousel />
                     </Col>
                 </Row>
