@@ -117,6 +117,25 @@ body::-webkit-scrollbar-thumb {
   color: #FF884B;
 }
 
+.universalHeader {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--dark-font-color);
+  cursor: default;
+  margin-bottom: 15px;
+}
+
+.universalSubHeader {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--dark-font-color);
+  cursor: default;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
 /* Scrolldown element */
 
 .scrolldown {

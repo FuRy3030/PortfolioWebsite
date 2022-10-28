@@ -1,0 +1,104 @@
+.completedDot {
+    background: linear-gradient(90deg, #E0144C, #FF884B);
+    border: none !important;
+    padding: 3px !important;
+    margin: 5px 0px !important;
+}
+
+.completedConnector {
+    background: linear-gradient(90deg, #E0144C, #FF884B);
+    width: 3px !important;
+}
+
+.contentHeader {
+    font-family: 'League Spartan', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    color: var(--dark-font-color);
+    cursor: default;
+}
+
+.contentSubHeader {
+    font-family: 'League Spartan', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    color: rgb(194, 194, 203);
+    cursor: default;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(228, 228, 236);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.cardHeader {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: var(--dark-font-color);
+    width: 100%;
+    text-align: center;
+    cursor: default;
+}
+
+.cardRatingRow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 13px 0px;
+}
+
+.cardRatingRow span {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--dark-font-color);
+    cursor: default;
+}
+
+.cardRatingRow span:last-of-type {
+    color: #ef4e4b !important;
+}
+
+.headelineDescriptors {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.headelineDescriptors span {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--dark-font-color);
+    font-style: italic;
+}
+
+.skillsStackRow {
+    width: 90%;
+    margin: auto;
+}
+
+@media (max-width: 576px) {
+    .skillsStackRow {
+        width: 100%;
+    }
+
+    .contentHeader {
+        font-size: 18px !important;
+    }
+    
+    .contentSubHeader {
+        font-size: 8px !important;
+    }
+}

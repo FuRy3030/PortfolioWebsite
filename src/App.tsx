@@ -1,70 +1,207 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import './App.css';
-import styled from 'styled-components';
+import { useState } from 'react';
+import { Routes, Route } from "react-router-dom";
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-import LandingScreen from './components/landing-screen/LandingScreen';
 import NavBar from './components/nav-bar/NavBar';
-import SkillsShortcut from './components/skills-shortcut/SkillsShortcut';
-import ProjectShortcut from './components/project-shortcut/ProjectShortcut';
-import TechnologiesStepper from './components/technologies-stepper/TechnologiesStepper';
+import LandingPage from './pages/LandingPage';
+import SkillsPage from './pages/SkillsPage';
+import SkillsStack from './components/skills-stack/SkillsStack';
 
-interface Project {
-  ClassName: string;
-  Video: string;
-  Name: string;
-  Description: string;
-  FrontEnd: string[];
-  BackEnd?: string[];
-  Other: string[];
+interface AllSkills {
+  Type: string;
+  OrderList: {
+    Name: string;
+    CatchyPhrase: string;
+    Rating: number;
+  } [];
+  Header: string;
+  ShortDescription: string;
 }
 
-const MyProjects: Project[] = [
-  {
-    ClassName: 'projectShortcutQuarere',
-    Video: 'QuarereVideo',
-    Name: 'Quarere',
-    Description: 'Have you ever been learning new language through reading different texts in it, ranging from books to articles? Most of us answer in the affirmative to this question. There comes a solution which allows for better and faster reading, creation of custom studying materials, learning new words, and more...',
-    FrontEnd: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Bootstrap'],
-    BackEnd: ['C#', '.NET', 'ASP.NET Web API', 'ASP.NET Web Forms'],
-    Other: ['SQL', 'Visual Studio']
-  },
-  {
-    ClassName: 'projectShortcutItQuest',
-    Video: 'ITQuest',
-    Name: 'IT.Quest',
-    Description: 'Creating reusable problem sets or exercises for students? This project allows for all of this with a features for conducting tests and assignments, convenient grading of students answers, and exporting their results. Moreover, application supports specific additions for IT classes like sending files or writing code in the browser...',
-    FrontEnd: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Bootstrap'],
-    BackEnd: ['C#', '.NET Core', 'ASP.NET Core MVC', 'Entity Framework Core'],
-    Other: ['SQL', 'Visual Studio']
-  },
-  {
-    ClassName: 'projectShortcutCodex',
-    Video: 'CodexVideo',
-    Name: 'Codex',
-    Description: 'Hesitate which data structure or algorithm is the most suitable in a specific scenario for given task? This website helps determine the best choice by comparing solutions by several categories, including time and space complexity, pros and cons, and exemplary cases of usage with code snippets and explanations...',
-    FrontEnd: ['React', 'HTML', 'CSS', 'JavaScript', 'React Router', 'React Redux'],
-    Other: ['Visual Studio Code']
-  }
+const Paths: string[] = [
+  'front-end',
+  'back-end',
+  'other'
 ]
 
-const ProjectsHeader: any = styled.h1`
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 800;
-  font-size: 70px;
-  margin-top: 58px;
-  margin-bottom: 18px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--dark-font-color);
-  width: 90%;
-  text-align: center;
-  cursor: default;
-`;
+const AllMySkills: AllSkills[] = [
+  {
+    Type: 'Front End',
+    OrderList: [
+      {
+          Name: 'HTML',
+          CatchyPhrase: '<body> <span> Hi </span> </body>',
+          Rating: 4.5
+      },
+      {
+          Name: 'CSS',
+          CatchyPhrase: 'color: white; border: 1px solid red;',
+          Rating: 4.5
+      },
+      {
+          Name: 'Bootstrap',
+          CatchyPhrase: 'Container, row, column, modal, card',
+          Rating: 4
+      },
+      {
+          Name: 'Javascript',
+          CatchyPhrase: 'const fnc = () => { return "Hello Word!" }',
+          Rating: 5
+      },
+      {
+          Name: 'jQuery',
+          CatchyPhrase: '$( "button.continue" ).html( "Next Step..." )',
+          Rating: 4
+      },
+      {
+          Name: 'AJAX',
+          CatchyPhrase: '$.ajax({ success: alert( "success!" ) })',
+          Rating: 4
+      },
+      {
+          Name: 'DataTables',
+          CatchyPhrase: 'function () { $("#myTable").DataTable()',
+          Rating: 2
+      },
+      {
+          Name: 'CodeMirror',
+          CatchyPhrase: 'let view = new EditorView ({...})',
+          Rating: 1.5
+      },
+      {
+          Name: 'JSON',
+          CatchyPhrase: '{"name" : "John", "age" : 30, "car" : null}',
+          Rating: 5
+      },
+      {
+          Name: 'React',
+          CatchyPhrase: 'root.render(<HelloMessage name="Adam" />)',
+          Rating: 3
+      },
+      {
+          Name: 'Material-UI',
+          CatchyPhrase: 'Typography, Badge, Chip, Accordion, Card',
+          Rating: 2
+      },
+      {
+          Name: 'React Router',
+          CatchyPhrase: '<Route path="/..." element={<... />}',
+          Rating: 2
+      },
+      {
+          Name: 'React Redux',
+          CatchyPhrase: '<Provider store={store}>...</Provider>',
+          Rating: 1
+      },
+      {
+          Name: 'TypeScript',
+          CatchyPhrase: 'interface CustomInterface {type: number}',
+          Rating: 1
+      },
+    ],
+    Header: 'Other personal kind of art',
+    ShortDescription: 'Front-end has always been all about the user interface. In other words, all about convenience, transparency, and visual appeal. Though more analytical aspects innately came with ease, visually-related operations turned out to be harder to master. However, contrary to painting, I was always able to correct my mistakes, change the design, or try new, bizarre things. By practicing, I managed to overcome my shortcomings and even started enjoying designing the user interface using HTML, CSS, and others.'
+  },
+  {
+    Type: 'Back End',
+    OrderList: [
+      {
+        Name: 'C#',
+        CatchyPhrase: 'public class Customer {public string...}',
+        Rating: 4.5
+      },
+      {
+        Name: '.NET',
+        CatchyPhrase: 'public static void Main()',
+        Rating: 4
+      },
+      {
+        Name: '.NET Core',
+        CatchyPhrase: 'private readonly UserManager<User>',
+        Rating: 4
+      },
+      {
+        Name: 'ASP.NET',
+        CatchyPhrase: 'public partial class IndexModel : PageModel',
+        Rating: 4
+      },
+      {
+        Name: 'ASP.NET Web Forms',
+        CatchyPhrase: 'using Microsoft AspNetCore.WebForms;',
+        Rating: 2.5
+      },
+      {
+        Name: 'ASP.NET Web API',
+        CatchyPhrase: 'using Microsoft AspNetCore.WebAPI;',
+        Rating: 4.5
+      },
+      {
+        Name: 'ASP.NET MVC',
+        CatchyPhrase: 'using Microsoft AspNetCore.Mvc;',
+        Rating: 3.5
+      },
+      {
+        Name: 'Newtonsoft',
+        CatchyPhrase: 'string json = SerializeObject(obj)',
+        Rating: 3.5
+      },
+      {
+        Name: 'Entity Framework',
+        CatchyPhrase: 'public class EntityContext : DbContext',
+        Rating: 2
+      },
+      {
+        Name: 'Entity Framework Core',
+        CatchyPhrase: 'public class EntityContext : DbContext',
+        Rating: 2
+      },
+      {
+        Name: 'LinQ',
+        CatchyPhrase: 'Array.Select(n => n).ToArray();',
+        Rating: 2
+      },
+    ],
+    Header: 'Place where all magic happens',
+    ShortDescription: 'Back-end has always seemed more analytical and thus more approachable. However, during the development of my first full-stack project, I realized that the number of solutions was overwhelming. Single-page application, web API, model-view-controller, or razor pages - all required a different perspective. It took me a significant amount of time to sort out those distinctions and learn when to use which approach.'
+  },
+  {
+    Type: 'Other',
+    OrderList: [
+      {
+        Name: 'SQL',
+        CatchyPhrase: 'SELECT column1, column2, ... FROM table',
+        Rating: 4
+      },
+      {
+        Name: 'Microsoft SQL Server',
+        CatchyPhrase: 'Import table FROM ...',
+        Rating: 3
+      },
+      {
+        Name: 'Visual Studio',
+        CatchyPhrase: 'C#, .NET, Deployment, Syntax',
+        Rating: 5
+      },
+      {
+        Name: 'Visual Studio Code',
+        CatchyPhrase: 'Javascript, React, CSS, Syntax',
+        Rating: 5
+      },
+      {
+        Name: 'Postman',
+        CatchyPhrase: 'Web API, HTTP response',
+        Rating: 2.5
+      },
+      {
+        Name: 'GitHub',
+        CatchyPhrase: 'Repository, Code, GIT',
+        Rating: 2
+      }
+    ],
+    Header: 'Databases, IDEs, and other...',
+    ShortDescription: 'Since the beginning databases, as well as other types of software, have seemed very intuitive. Moreover, they have always served as assistant tools. For instance, postman helped me in working on APIs and solving bugs associated with them.'
+  }
+]
 
 function App() {
   const [ isIntersecting, setIsIntersecting ] = useState(true);
@@ -73,63 +210,21 @@ function App() {
     setIsIntersecting(isCurrentlyIntersecting);
   };
 
-  const LandingPageBackgroundElement: any = useRef(null);
-
-  const updateHeaderStyle = (entries: any) => {
-    const [ entry ] = entries;
-    updateNavBarStyle(entry.isIntersecting);
-  }
-
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.2
-  }
-  
-  useEffect(() => {
-      const observer = new IntersectionObserver(updateHeaderStyle, options);
-      observer.observe(LandingPageBackgroundElement.current);
-
-      return () => {
-        if (LandingPageBackgroundElement.current) {
-          observer.unobserve(LandingPageBackgroundElement.current);
-        }
-      }
-  }, []);
-
   return (
     <React.Fragment>
       <NavBar isLandingScreenVisible={isIntersecting} />
-      <div className='landingPageBackgroundArea' ref={LandingPageBackgroundElement}>
-        <LandingScreen />
-        <Container fluid>
-          <Row className='skillsBackground'>
-            <Col xs={12}>
-              <TechnologiesStepper />
-              <SkillsShortcut />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <Container fluid>
-        <Row>
-          <Col xs={12}>
-            <ProjectsHeader> My Projects </ProjectsHeader>
-            {MyProjects.map((Project: any, index: number) => {
-              return <ProjectShortcut
-                key={index} 
-                backgroundClassName={Project.ClassName}
-                video={Project.Video}
-                name={Project.Name}
-                description={Project.Description}
-                frontEnd={Project.FrontEnd}
-                backEnd={Project.BackEnd}
-                other={Project.Other}
-              />
-            })}
-          </Col>
-        </Row>
-      </Container>
+      <Routes>
+        <Route path="/" element={<LandingPage updateNavBarStyle={updateNavBarStyle} />}>
+          <Route path="home" element={<LandingPage updateNavBarStyle={updateNavBarStyle} />} />
+        </Route>
+        <Route path="skills" element={<SkillsPage />}>
+          {AllMySkills.map((SkillsList: AllSkills, index: number) => {
+            return <Route path={Paths[index]} key={index}
+              element={<SkillsStack key={index} skills={SkillsList} />} 
+            />
+          })}
+        </Route>
+      </Routes>
     </React.Fragment>
   );
 }

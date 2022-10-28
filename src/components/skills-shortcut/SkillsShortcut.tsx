@@ -1,5 +1,6 @@
 import styles from './SkillsShortcut.module.css';
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 import Col from 'react-bootstrap/Col';
 import { Divider } from '@mui/material';
@@ -59,6 +60,12 @@ const MySkills: SkillsWithExpeirence = {
 }
 
 const SkillsShortcut = () => {
+    const navigate = useNavigate();
+
+    const SkillsRedirect: () => any = () => {
+        return navigate("/skills/front-end");
+    };
+
     return (
         <React.Fragment>
             <div className={styles.skillsShortcut}>
@@ -102,7 +109,7 @@ const SkillsShortcut = () => {
                 </Col>
             </div>
             <div className={styles.buttonRow}>
-                <button className={`lifting-button`}>
+                <button className={`lifting-button`} onClick={SkillsRedirect}>
                     See Full List
                     <FontAwesomeIcon icon={faArrowRight} />
                 </button>
