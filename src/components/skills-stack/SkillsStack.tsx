@@ -12,8 +12,6 @@ import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
 import { Rating } from '@mui/material';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHtml5, IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import CheckIcon from '@mui/icons-material/Check';
 
 import Col from 'react-bootstrap/Col';

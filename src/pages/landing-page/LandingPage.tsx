@@ -1,16 +1,16 @@
 import React from 'react';
 import { useEffect, useRef } from 'react';
-import '../App.css';
+import '../../App.css';
 import styled from 'styled-components';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import LandingScreen from '../components/landing-screen/LandingScreen';
-import SkillsShortcut from '../components/skills-shortcut/SkillsShortcut';
-import ProjectShortcut from '../components/project-shortcut/ProjectShortcut';
-import TechnologiesStepper from '../components/technologies-stepper/TechnologiesStepper';
+import LandingScreen from '../../components/landing-screen/LandingScreen';
+import SkillsShortcut from '../../components/skills-shortcut/SkillsShortcut';
+import ProjectShortcut from '../../components/project-shortcut/ProjectShortcut';
+import TechnologiesStepper from '../../components/technologies-stepper/TechnologiesStepper';
 
 interface Project {
   ClassName: string;
@@ -20,6 +20,7 @@ interface Project {
   FrontEnd: string[];
   BackEnd?: string[];
   Other: string[];
+  Path: string;
 }
 
 const MyProjects: Project[] = [
@@ -30,7 +31,8 @@ const MyProjects: Project[] = [
     Description: 'Have you ever been learning new language through reading different texts in it, ranging from books to articles? Most of us answer in the affirmative to this question. There comes a solution which allows for better and faster reading, creation of custom studying materials, learning new words, and more...',
     FrontEnd: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Bootstrap'],
     BackEnd: ['C#', '.NET', 'ASP.NET Web API', 'ASP.NET Web Forms'],
-    Other: ['SQL', 'Visual Studio']
+    Other: ['SQL', 'Visual Studio'],
+    Path: 'quarere'
   },
   {
     ClassName: 'projectShortcutItQuest',
@@ -39,7 +41,8 @@ const MyProjects: Project[] = [
     Description: 'Creating reusable problem sets or exercises for students? This project allows for all of this with a features for conducting tests and assignments, convenient grading of students answers, and exporting their results. Moreover, application supports specific additions for IT classes like sending files or writing code in the browser...',
     FrontEnd: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Bootstrap'],
     BackEnd: ['C#', '.NET Core', 'ASP.NET Core MVC', 'Entity Framework Core'],
-    Other: ['SQL', 'Visual Studio']
+    Other: ['SQL', 'Visual Studio'],
+    Path: 'it-quest'
   },
   {
     ClassName: 'projectShortcutCodex',
@@ -47,7 +50,8 @@ const MyProjects: Project[] = [
     Name: 'Codex',
     Description: 'Hesitate which data structure or algorithm is the most suitable in a specific scenario for given task? This website helps determine the best choice by comparing solutions by several categories, including time and space complexity, pros and cons, and exemplary cases of usage with code snippets and explanations...',
     FrontEnd: ['React', 'HTML', 'CSS', 'JavaScript', 'React Router', 'React Redux'],
-    Other: ['Visual Studio Code']
+    Other: ['Visual Studio Code'],
+    Path: 'codex'
   }
 ]
 
@@ -96,7 +100,7 @@ function LandingPage(props: any) {
         <LandingScreen />
         <Container fluid>
           <Row className='skillsBackground'>
-            <Col xs={12}>
+            <Col xs={12} id="SkillsShortcut">
               <TechnologiesStepper />
               <SkillsShortcut />
             </Col>
@@ -117,6 +121,7 @@ function LandingPage(props: any) {
                 frontEnd={Project.FrontEnd}
                 backEnd={Project.BackEnd}
                 other={Project.Other}
+                path={Project.Path}
               />
             })}
           </Col>

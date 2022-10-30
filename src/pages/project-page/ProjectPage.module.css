@@ -1,0 +1,60 @@
+.pageContent {
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+
+.contentScreen {
+    width: 82.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--dark-font-color);
+    border-radius: 10px;
+}
+
+.header {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 45px;
+    color: var(--dark-font-color);
+    cursor: default;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.paragraph {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--dark-font-color);
+    cursor: default;
+    width: 100%;
+    margin: 10px 0px;
+    text-align: justify;
+}
+
+.leftBar {
+    width: 30%;
+    height: calc(100vh - 56.4px);
+    margin-top: 56.4px;
+    background-color: white;
+    position: sticky;
+    top: 56.4px;
+    left: 0px;
+    overflow-y: auto;
+    -webkit-box-shadow: 4px 4px 5px -1px rgb(211, 211, 211);
+    -moz-box-shadow: 4px 4px 5px -1px rgb(211, 211, 211);
+    box-shadow: 4px 4px 5px -1px rgb(211, 211, 211);
+}
+
+@media (max-width: 576px) {
+    .leftBar {
+        display: none;
+    }
+}

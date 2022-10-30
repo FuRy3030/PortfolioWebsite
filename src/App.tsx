@@ -3,9 +3,71 @@ import { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 
 import NavBar from './components/nav-bar/NavBar';
-import LandingPage from './pages/LandingPage';
-import SkillsPage from './pages/SkillsPage';
+import LandingPage from './pages/landing-page/LandingPage';
+import SkillsPage from './pages/skills-page/SkillsPage';
+import ProjectPage from './pages/project-page/ProjectPage';
 import SkillsStack from './components/skills-stack/SkillsStack';
+
+interface Project {
+  Name: string;
+  Paragrahs: string[];
+  Technologies: {
+    FrontEnd: string[];
+    BackEnd: string[] | null;
+    Other: string[];
+  };
+  Images: string[];
+  Video: string;
+}
+
+const Projects: Project[] = [
+  {
+    Name: 'Quarere',
+    Paragrahs: [
+      'Most of the people studying English do it, at least in some part, through reading while some of them treat reading as a primary source of the learning process. Moreover, nearly everyone opens Google and goes through popular articles that seem interesting. Quarere is the first version of a tool serving as a perfect addition when it comes to learning English this way. The process of how the application works is very simple.',
+      'All the user needs is a custom, chosen piece of text. It could be anything: a short story from British Council, a technology-related article, or a chapter from a favorite book. Then the user can read the whole text in a comfortable interface that provides him with meanings, synonyms, antonyms, translations, examples, phonetics, and origins of the hovered words or phrases. After getting to the end of the story, all unknown words and phrases for the user can be transformed into learning materials forming a set, which allows for unlimited modification, including editing, adding, or deleting elements inside it. Finally, the user is able to revise new things by utilizing one of the learning modes, for instance, flashcards.',
+      'On top of that, the application lets the learner use the embedded, significantly more detailed dictionary that contains even more meanings, translations, examples, and synonyms with plenty of sub-meanings accompanying them. In addition, it allows for the creation of the aforementioned learning materials directly from its elements. In other words, the user can choose which meanings, examples, synonyms, or translations he wants to use by simply clicking them.'
+    ],
+    Technologies: {
+      FrontEnd: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'AJAX', 'Bootstrap', 'DataTables', 'JSON'],
+      BackEnd: ['C#', '.NET', 'ASP.NET', 'ASP.NET Web API', 'ASP.NET Web Forms', 'ADO.NET', 'Newtonsoft'],
+      Other: ['SQL', 'Microsoft SQL Server', 'Visual Studio', 'Visual Studio Code', 'Postman']
+    },
+    Images: ['quarere', 'quarere 2', 'quarere 3', 'quarere 4'],
+    Video: 'QuarereVideo'
+  },
+  {
+    Name: 'IT.Quest',
+    Paragrahs: [
+      `IT.Quest primarily addresses the need for a system designed for examining students with specific features tailored for IT classes. It allows teachers to create single exercises of different types, combine them into problem sets, produce many assignments, pop quizzes, or tests restricted by time, review and grade users' answers, and export results to other media.`,
+      'The application supports three types of exercises: normal, true / false, and programming. Moreover, their content can be formatted using an advanced text editor that allows for changes in font size, color, or style, usage of tables or images, and other features like writing code. Each exercise also includes a number of points, hashtags, and the type of answer.',
+      `Problem sets could be reused many times for different assignments for several classes. The teacher can create as many sessions with distinct dates from one set as he wants. After the session finishes, each student's result is marked as not graded yet. The status of each educatee's work updates automatically when the teacher grades it. As a result, it shows the tutor which answers have to be graded, which are partially graded, and which are ready to go.`,
+      'Additionally, the application allows for sending files, writing the code in the browser, or attaching it from the file. On top of that, it provides the teacher with an option to specify which programming language is required for a given exercise. Therefore, assignments involving databases or solving certain coding problems can be smoothly conducted through this system.'
+    ],
+    Technologies: {
+      FrontEnd: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'AJAX', 'Bootstrap', 'DataTables', 'JSON', 'CodeMirror'],
+      BackEnd: ['C#', '.NET Core', 'ASP.NET Core', 'ASP.NET Core MVC', 'Entity Framework Core', 'LinQ', 'Newtonsoft'],
+      Other: ['SQL', 'Microsoft SQL Server', 'Visual Studio', 'Visual Studio Code', 'GitHub']
+    },
+    Images: ['it quest 2', 'it quest 3', 'it quest 4', 'it quest 5'],
+    Video: 'ITQuest'
+  },
+  {
+    Name: 'Codex',
+    Paragrahs: [
+      'tures and algorithms. It aims to describe them by the same categories, including the principle of operation, time and space complexity, pros and cons, scenarios and examples of usage, and sometimes even code snippets.',
+      'Furthermore, Codex features a handy search bar that ensures fast and comfortable access to all of the sub-pages of the website - the user can instantly look for other elements. The application also includes helpful images in case of data structures and simple animations in case of algorithms.',
+      'Moreover, Codex provides a convenient way of comparing the data structures within the aforementioned metrics and criteria. It allows for making a comparison of three structures at the same time. As a result, the user can quickly decide which option fits his task the most.'
+    ],
+    Technologies: {
+      FrontEnd: ['HTML', 'CSS', 'JavaScript', 'React', 'React Bootstrap', 'React Router', 'React Redux'],
+      BackEnd: null,
+      Other: ['Visual Studio Code', 'GitHub']
+    },
+    Images: ['dsa', 'dsa 2', 'dsa 3', 'dsa 5'],
+    Video: 'CodexVideo'
+  }
+]
 
 interface AllSkills {
   Type: string;
@@ -204,7 +266,7 @@ const AllMySkills: AllSkills[] = [
 ]
 
 function App() {
-  const [ isIntersecting, setIsIntersecting ] = useState(true);
+  const [ isIntersecting, setIsIntersecting ] = useState(false);
 
   const updateNavBarStyle = (isCurrentlyIntersecting: boolean) => {
     setIsIntersecting(isCurrentlyIntersecting);
@@ -224,6 +286,9 @@ function App() {
             />
           })}
         </Route>
+        <Route path="/projects/quarere" element={<ProjectPage id={0} project={Projects[0]} />} />
+        <Route path="/projects/it-quest" element={<ProjectPage id={1} project={Projects[1]} />} />
+        <Route path="/projects/codex" element={<ProjectPage id={2} project={Projects[2]} />} />
       </Routes>
     </React.Fragment>
   );

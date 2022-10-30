@@ -1,5 +1,6 @@
 import styles from './ProjectShortcut.module.css';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -26,6 +27,12 @@ const ProjectShortcutInner = styled.div`
 `;
 
 const ProjectShortcut = (props: any) => {
+    const navigate = useNavigate();
+
+    const ProjectRedirect: () => any = () => {
+        return navigate(`/projects/${props.path}`);
+    };
+
     return (
         <ProjectShortcutInner className={`${props.backgroundClassName}`}>
             <Row>
@@ -70,7 +77,10 @@ const ProjectShortcut = (props: any) => {
                         </span>
                     </div>
                     <div className={styles.buttonRow}>
-                        <button className={`lifting-button ${styles.readMoreButton}`}>
+                        <button 
+                            className={`lifting-button ${styles.readMoreButton}`} 
+                            onClick={ProjectRedirect}
+                        >
                             Read More
                             <FontAwesomeIcon icon={faSquareArrowUpRight} />
                         </button>

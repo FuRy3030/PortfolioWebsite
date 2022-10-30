@@ -4,33 +4,36 @@
     left: 0px;
     width: 100%;
     height: auto;
-    background-color: hsl(0, 0%, 0%, 0.55);
+    background-color: white;
     z-index: 6;
     display: flex;
     justify-content: space-around;
     align-items: center;
     transition: all 0.4s ease;
-}
-
-.navbarWhite {
-    background-color: white;
     -webkit-box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
     -moz-box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
     box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
+}
+
+.navbarDark {
+    background-color: hsl(0, 0%, 0%, 0.55);
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .navbarHeader {
     font-family: 'League Spartan', sans-serif;
     font-weight: 800;
     font-size: 27px;
-    color: white;
+    color: var(--dark-font-color);
     margin-bottom: 0px;
-    cursor: default;
     padding: 12px 25px;
+    cursor: pointer;
 }
 
-.navbarWhite .navbarHeader {
-    color: var(--dark-font-color);
+.navbarDark .navbarHeader {
+    color: white;
 }
 
 .navbarContent {
@@ -46,15 +49,15 @@
     font-family: 'League Spartan', sans-serif;
     font-weight: 600;
     font-size: 21px;
-    color: white;
+    color: var(--dark-font-color);
     padding: 12px 10px;
     margin: 0px 20px;
     transition: all 0.5s ease-in-out;
     text-decoration: none;
 }
 
-.navbarWhite .navbarLink {
-    color: var(--dark-font-color);
+.navbarDark .navbarLink {
+    color: white;
 }
 
 .navbarLink::after {
@@ -64,23 +67,22 @@
     bottom: 8px;
     width: 100%;
     height: 2px;
-    background: white;
+    background: var(--dark-font-color);
     transform: scaleX(0);
     transform-origin: left;
     transition: all 0.5s ease;
 }
 
-.navbarWhite .navbarLink::after {
-    background: var(--dark-font-color);
+.navbarDark .navbarLink::after {
+    background: white;
 }
 
 .navbarDropdown {
     position: absolute;
     left: -22.5px;
     bottom: -175px;
-    width: auto;
+    width: 320px;
     height: auto;
-    background-color: hsl(0, 0%, 0%, 0.55);
     z-index: 6;
     border-radius: 6px;
     padding: 6px 0px;
@@ -88,30 +90,38 @@
     flex-direction: column;
     justify-content: center;
     transition: all 0.4s ease;
-}
-
-.navbarWhite .navbarLink .navbarDropdown {
     background-color: white;
     -webkit-box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
     -moz-box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
     box-shadow: 0px 4px 5px -1px rgb(211, 211, 211);
 }
 
+.navbarDropdownSmall {
+    width: 180px;
+}
+
+.navbarDark .navbarLink .navbarDropdown {
+    background-color: hsl(0, 0%, 0%, 0.55);
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
 .navbarDropdown > span {
-    width: max-content;
+    width: 100%;
     display: flex;
     position: relative;
     cursor: pointer;
     font-family: 'League Spartan', sans-serif;
     font-weight: 600;
     font-size: 20px;
-    color: white;
+    color: var(--dark-font-color);
     padding: 12px 35px;
     transition: all 0.3s ease-in-out;
 }
 
-.navbarWhite .navbarLink .navbarDropdown > span {
-    color: var(--dark-font-color);
+.navbarDark .navbarLink .navbarDropdown > span {
+    color: white;
 }
 
 .navbarDropdown > span > svg {
@@ -123,14 +133,14 @@
 .mobileMenuButton {
     margin-left: auto;
     margin-right: 30px;
-    color: white;
+    color: var(--dark-font-color);
     font-size: 30px;
     cursor: pointer;
     display: none;
 }
 
-.navbarWhite .mobileMenuButton {
-    color: var(--dark-font-color);
+.navbarDark .mobileMenuButton {
+    color: white;
 }
 
 .mobileMenu {
@@ -204,12 +214,12 @@
 
 @media (hover) {
     .navbarLink:hover {
-        color: white;
         text-decoration: none;
+        color: var(--dark-font-color);
     }
 
-    .navbarWhite .navbarLink:hover {
-        color: var(--dark-font-color);
+    .navbarDark .navbarLink:hover {
+        color: white;
     }
 
     .navbarLink:hover::after {
@@ -226,11 +236,11 @@
 
     .navbarDropdown > span:hover {
         color: var(--contrast-orange);
-        background-color: white;
+        background-color: ghostwhite;
     }
 
-    .navbarWhite .navbarLink .navbarDropdown > span:hover {
+    .navbarDark .navbarLink .navbarDropdown > span:hover {
         color: var(--contrast-orange);
-        background-color: ghostwhite;
+        background-color: white;
     }
 }

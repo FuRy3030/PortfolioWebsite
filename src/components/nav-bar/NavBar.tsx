@@ -24,6 +24,10 @@ const NavBar = (props: any) => {
 
     const navigate = useNavigate();
 
+    const HomeRedirect: () => any = () => {
+        return navigate("/home");
+    };
+
     const SkillsFrontEndRedirect: () => any = () => {
         MobileMenuRef.current.style.display = 'none';
         return navigate("/skills/front-end");
@@ -37,12 +41,25 @@ const NavBar = (props: any) => {
         return navigate("/skills/other");
     };
 
+    const QuarereRedirect: () => any = () => {
+        MobileMenuRef.current.style.display = 'none';
+        return navigate("/projects/quarere");
+    };
+    const ITQuestRedirect: () => any = () => {
+        MobileMenuRef.current.style.display = 'none';
+        return navigate("/projects/it-quest");
+    };
+    const CodexRedirect: () => any = () => {
+        MobileMenuRef.current.style.display = 'none';
+        return navigate("/projects/codex");
+    };
+
     return (
         <React.Fragment>
             <div className={props.isLandingScreenVisible == false ? 
-                `${styles.navbar} ${styles.navbarWhite}` : `${styles.navbar}`}
+                `${styles.navbar}` : `${styles.navbar} ${styles.navbarDark}`}
             >
-                <h2 className={styles.navbarHeader}>
+                <h2 className={styles.navbarHeader} onClick={HomeRedirect}>
                     Adam Duda
                 </h2>
                 <div className={styles.navbarContent}>
@@ -62,10 +79,16 @@ const NavBar = (props: any) => {
                     </span>
                     <span className={styles.navbarLink}>
                         Projects
-                        <div className={styles.navbarDropdown}>
-                            <span><FontAwesomeIcon icon={faLanguage} /> Quarere</span>
-                            <span><FontAwesomeIcon icon={faGraduationCap} /> IT.Quest</span>
-                            <span><FontAwesomeIcon icon={faCode} /> Codex</span>
+                        <div className={`${styles.navbarDropdown} ${styles.navbarDropdownSmall}`}>
+                            <span onClick={QuarereRedirect}>
+                                <FontAwesomeIcon icon={faLanguage} /> Quarere
+                            </span>
+                            <span onClick={ITQuestRedirect}>
+                                <FontAwesomeIcon icon={faGraduationCap} /> IT.Quest
+                            </span>
+                            <span onClick={CodexRedirect}>
+                                <FontAwesomeIcon icon={faCode} /> Codex
+                            </span>
                         </div>
                     </span>
                 </div>
@@ -99,13 +122,13 @@ const NavBar = (props: any) => {
                     Projects
                 </span>
                 <div className={styles.mobileDropdown}>
-                    <span className={styles.mobileDropdownLink}>
+                    <span onClick={QuarereRedirect} className={styles.mobileDropdownLink}>
                         <FontAwesomeIcon icon={faLanguage} /> Quarere
                     </span>
-                    <span className={styles.mobileDropdownLink}>
+                    <span onClick={ITQuestRedirect} className={styles.mobileDropdownLink}>
                         <FontAwesomeIcon icon={faGraduationCap} /> IT.Quest
                     </span>
-                    <span className={styles.mobileDropdownLink}>
+                    <span onClick={CodexRedirect} className={styles.mobileDropdownLink}>
                         <FontAwesomeIcon icon={faCode} /> Codex
                     </span>
                 </div>

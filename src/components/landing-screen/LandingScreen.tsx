@@ -5,9 +5,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TechnologiesCarousel from '../technologies-carousel/TechnologiesCarousel';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 function LandingScreen() {
+    const ScrollToSkillsShortcut = () => {
+        const SkillsShortcut = document.getElementById("SkillsShortcut");
+        if (SkillsShortcut != null) {
+            SkillsShortcut.scrollIntoView({behavior: "smooth"});
+        }
+    };
+
     return (
         <div className={styles.landingScreen} style={{display: "flex"}}>
             <Container fluid>
@@ -24,9 +31,12 @@ function LandingScreen() {
                         <h4 className={styles.subHeader}>
                             Passionate Full-Stack Developer
                         </h4>
-                        <button className={`lifting-button ${styles.landingButton}`}>
+                        <button 
+                            onClick={ScrollToSkillsShortcut}
+                            className={`lifting-button ${styles.landingButton}`}
+                        >
                             About Me 
-                            <FontAwesomeIcon icon={faArrowRight} />
+                            <FontAwesomeIcon icon={faArrowDown} />
                         </button>
                     </Col>
                     <Col xs={12} md={6} style={{marginBottom: '30px', display: 'flex', alignItems: 'center'}}>

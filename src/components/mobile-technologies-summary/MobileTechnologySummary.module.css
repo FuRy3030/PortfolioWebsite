@@ -1,0 +1,53 @@
+.mobileTechnologySummary {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid rgb(227, 227, 235);
+    margin: 25px 0px;
+    padding: 20px 10px;
+}
+
+.mobileTechnologySummaryRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0px;
+}
+
+.iconImage {
+    margin-bottom: 15px;
+    width: 50%;
+    height: auto;
+}
+
+.mobileSummaryHeader {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--dark-font-color);
+    cursor: default;
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.mobileSummaryTechnology {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    font-size: 18.5px;
+    color: var(--dark-font-color);
+    cursor: default;
+    width: 100%;
+    margin-bottom: 7px;
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    .mobileTechnologySummary {
+        display: flex;
+    }
+}
